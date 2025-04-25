@@ -17,7 +17,7 @@ namespace TaskTrackerAPI.Data
                 new TaskItem
                 {
                     Id = 1,
-                    Title = "Test Tesk",
+                    Title = "Test Task",
                     Description = "This is a test.",
                     DueDate = DateTime.Now,
                     IsCompleted = false
