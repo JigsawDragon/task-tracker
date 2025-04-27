@@ -28,18 +28,15 @@ namespace TaskTrackerAPI.Controllers
             return await _context.Tasks.ToListAsync();
         }
 
-        // GET: api/Task/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<TaskItem>> GetTaskItem(int id)
+        // POST: api/Task
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<TaskItem>> PostTaskItem(TaskItem taskItem)
         {
-            var taskItem = await _context.Tasks.FindAsync(id);
+            _context.Tasks.Add(taskItem);
+            await _context.SaveChangesAsync();
 
-            if (taskItem == null)
-            {
-                return NotFound();
-            }
-
-            return taskItem;
+            return CreatedAtAction("GetTaskItem", new { id = taskItem.Id }, taskItem);
         }
 
         // PUT: api/Task/5
@@ -73,17 +70,6 @@ namespace TaskTrackerAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Task
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<TaskItem>> PostTaskItem(TaskItem taskItem)
-        {
-            _context.Tasks.Add(taskItem);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetTaskItem", new { id = taskItem.Id }, taskItem);
-        }
-
         // DELETE: api/Task/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTaskItem(int id)
@@ -99,6 +85,8 @@ namespace TaskTrackerAPI.Controllers
 
             return NoContent();
         }
+
+        
 
         private bool TaskItemExists(int id)
         {

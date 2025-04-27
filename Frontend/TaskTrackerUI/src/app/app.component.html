@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>Task Tracker</h1>
+  
+  <div class="task-form">
+    <h2>Add Task</h2>
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" id="title" [(ngModel)]="newTask.title" placeholder="Task Title" required>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <input type="text" id="description" [(ngModel)]="newTask.description" placeholder="Task Description" required>
+    </div>
+    <div>
+      <label for="dueDate">Due Date:</label>
+      <input type="date" id="dueDate" [ngModel]="newTask.dueDate | date: 'yyyy-MM-dd'" >
+    </div>
+    <button (click)="addTask()">Add Task</button>
+  </div>
+
+  <div class="task-list">
+    <h2>Tasks</h2>
+    <div *ngIf="loading">Loading tasks...</div>
+    <div *ngIf="!loading && tasks.length === 0">No tasks available</div>
+    
+    <ul *ngIf="!loading && tasks.length > 0">
+      <li *ngFor="let task of tasks">
+        <div class="task-header">
+          <input type="checkbox" 
+                 [checked]="task.isCompleted" 
+                 (change)="finishTask(task)">
+          <span class="task-title" [class.completed]="task.isCompleted">
+            {{task.title}}
+          </span>
+          <button *ngIf="task.id !== undefined" (click)="deleteTask(task.id)">Delete</button>
+        </div>
+        <div class="task-details">
+          <p>{{task.description}}</p>
+          <p>Due: {{task.dueDate | date}}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </div>
