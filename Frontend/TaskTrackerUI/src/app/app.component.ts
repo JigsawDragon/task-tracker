@@ -38,20 +38,43 @@ export class AppComponent {
       }
     );
   }
-
+  
+  
   ngOnInit() {
     this.loadTasks();
   }
   
+  // addTask() {
+  //   if (!this.newTask.title || !this.newTask.description) return;
+  //   this.taskService.addTask(this.newTask).subscribe(
+  //     (response) => {
+  //       console.log('Task added successfully', response);
+  //       this.loadTasks(); // Reload tasks after adding a new one
+  //       this.newTask = { title: '', description: '', dueDate: new Date(), isCompleted: false };
+  //     },
+  //     (error) => {
+  //       console.error('Error adding task', error);
+  //     }
+  //   );
+  // }
   addTask() {
-    if (!this.newTask.title || !this.newTask.description) return;
+    console.log('Attempting to add task:', this.newTask);
+    
+    if (!this.newTask.title || !this.newTask.description) {
+      console.log('Title and description are required');
+      return;
+    }
+    
     this.taskService.addTask(this.newTask).subscribe(
-      () => {
-        this.loadTasks(); // Reload tasks after adding a new one
+      (response) => {
+        console.log('Task added successfully', response);
+        this.loadTasks();
         this.newTask = { title: '', description: '', dueDate: new Date(), isCompleted: false };
       },
       (error) => {
-        console.error('Error adding task', error);
+        console.error('Error adding task:', error);
+        console.error('Error details:', error.error);
+        alert('Failed to add task. Check console for details.');
       }
     );
   }

@@ -9,11 +9,12 @@
     </div>
     <div>
       <label for="description">Description:</label>
-      <input type="text" id="description" [(ngModel)]="newTask.description" placeholder="Task Description" required>
+      <input type="text" id="description" [(ngModel)]="newTask.description" placeholder="Task Description">
     </div>
     <div>
       <label for="dueDate">Due Date:</label>
-      <input type="date" id="dueDate" [ngModel]="newTask.dueDate | date: 'yyyy-MM-dd'" >
+      <input type="date" id="dueDate" [ngModel]="newTask.dueDate | date: 'yyyy-MM-dd'" 
+             (ngModelChange)="newTask.dueDate = $event" required>
     </div>
     <button (click)="addTask()">Add Task</button>
   </div>
