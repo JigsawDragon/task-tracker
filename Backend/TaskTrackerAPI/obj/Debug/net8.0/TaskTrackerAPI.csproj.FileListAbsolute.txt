@@ -280,7 +280,6 @@ C:\Users\siyer\VSProjects\task-tracker\Backend\TaskTrackerAPI\obj\Debug\net8.0\s
 C:\Users\siyer\VSProjects\task-tracker\Backend\TaskTrackerAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.TaskTrackerAPI.props
 C:\Users\siyer\VSProjects\task-tracker\Backend\TaskTrackerAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TaskTrackerAPI.props
 C:\Users\siyer\VSProjects\task-tracker\Backend\TaskTrackerAPI\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\siyer\VSProjects\task-tracker\Backend\TaskTrackerAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\siyer\VSProjects\task-tracker\Backend\TaskTrackerAPI\obj\Debug\net8.0\TaskTrac.1ED47AF3.Up2Date
 C:\Users\siyer\VSProjects\task-tracker\Backend\TaskTrackerAPI\obj\Debug\net8.0\TaskTrackerAPI.dll
 C:\Users\siyer\VSProjects\task-tracker\Backend\TaskTrackerAPI\obj\Debug\net8.0\refint\TaskTrackerAPI.dll
