@@ -36,7 +36,7 @@ namespace TaskTrackerAPI.Controllers
             _context.Tasks.Add(taskItem);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetTaskItem", new { id = taskItem.Id }, taskItem);
+            return Created($"api/Task/{taskItem.Id}" , taskItem);
         }
 
         // PUT: api/Task/5

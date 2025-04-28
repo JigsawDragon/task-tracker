@@ -286,3 +286,4 @@ C:\Users\siyer\VSProjects\task-tracker\Backend\TaskTrackerAPI\obj\Debug\net8.0\r
 C:\Users\siyer\VSProjects\task-tracker\Backend\TaskTrackerAPI\obj\Debug\net8.0\TaskTrackerAPI.pdb
 C:\Users\siyer\VSProjects\task-tracker\Backend\TaskTrackerAPI\obj\Debug\net8.0\TaskTrackerAPI.genruntimeconfig.cache
 C:\Users\siyer\VSProjects\task-tracker\Backend\TaskTrackerAPI\obj\Debug\net8.0\ref\TaskTrackerAPI.dll
+C:\Users\siyer\VSProjects\task-tracker\Backend\TaskTrackerAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
