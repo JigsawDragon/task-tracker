@@ -27,15 +27,17 @@ export class AppComponent {
 
   loadTasks() {
     this.loading = true;
-    this.taskService.getTasks().subscribe(
-      (data: Task[]) => {
+    this.taskService.getTasks().subscribe({
+      
+      next: (data: Task[]) => {
         this.tasks = data;
         this.loading = false;
       },
-      (error) => {
+      error: (error) => {
         console.error('Error loading tasks', error);
         this.loading = false;
       }
+    }
     );
   }
   
@@ -60,32 +62,34 @@ export class AppComponent {
   }
 
   updateTask(task: Task) {
-    this.taskService.updateTask(task).subscribe(
-      (updatedTask: Task) => {
+    this.taskService.updateTask(task).subscribe({
+      next: (updatedTask: Task) => {
         const index = this.tasks.findIndex(t => t.id === updatedTask.id);
         if (index !== -1) {
           this.tasks[index] = updatedTask;
         }
       },
-      (error) => {
+      error: (error) => {
         console.error('Error updating task', error);
       }
+    }
     );
   }
 
   deleteTask(id: number) {
-    this.taskService.deleteTask(id).subscribe(
-      () => {
+    this.taskService.deleteTask(id).subscribe({
+      next: () => {
         this.loadTasks();
       },
-      (error) => {
+      error: (error) => {
         console.error('Error deleting task', error);
       }
+    }
     );
 }
 
   finishTask(task: Task) {
-    const updatedTask = { id: task.id, title: task.title, description: task.description, dueDate: task.dueDate, isCompleted: true };
+    const updatedTask = { id: task.id, title: task.title, description: task.description, dueDate: task.dueDate, isCompleted: !task.isCompleted };
     this.taskService.updateTask(updatedTask).subscribe({
       next: (response) => { this.loadTasks(); },
       error: (error) => {
